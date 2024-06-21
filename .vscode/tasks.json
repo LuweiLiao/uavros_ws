@@ -3,6 +3,75 @@
 	"tasks": [
 		{
 			"type": "shell",
+			"label": "erb usl_bv2",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb usl_bv2_base",
+				"erb usl_bv2_tilt1",
+				"erb usl_bv2_tilt2",
+				"erb usl_bv2_prop",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_tilt1
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_tilt1",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_tilt1/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_tilt1/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_tilt2
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_tilt2",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_tilt2/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_tilt2/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_prop
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_base
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2/models/usl_bv2_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
 			"label": "erb usl_iwp",
 			"command": "erb src/uav_simulator/uav_gazebo/models/usl_iwp/models/usl_iwp/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_iwp/models/usl_iwp/model.sdf",
 			"args": [],
