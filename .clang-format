@@ -1,0 +1,67 @@
+---
+# clang-format documentation
+# http://clang.llvm.org/docs/ClangFormat.html
+# http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+# Preexisting formats:
+# LLVM
+# Google
+# Chromium
+# Mozilla
+# WebKit
+
+Language:        Cpp
+BasedOnStyle:  WebKit
+
+IndentWidth: 4
+ContinuationIndentWidth: 4
+AlignAfterOpenBracket: Align
+
+AlignTrailingComments: true
+BinPackArguments: false
+BinPackParameters: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
+
+AllowShortIfStatementsOnASingleLine: true #允许if块在单行上
+
+BraceWrapping:
+  AfterClass:      true
+  AfterControlStatement: false
+  AfterEnum:       true
+  AfterFunction:   true
+  AfterNamespace:  true
+  AfterObjCDeclaration: false
+  AfterStruct:     true
+  AfterUnion:      true
+  BeforeCatch:     true
+  BeforeElse:      true
+  IndentBraces:    false
+
+IncludeBlocks: Preserve
+
+# 要使用的预处理器指令缩进样式
+IndentPPDirectives: AfterHash #AfterHash缩进散列之后的指令
+# 用于预处理器语句缩进的列数
+PPIndentWidth: 1
+# 连续宏定义对齐
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+# if 宏，作为条件语句进行格式化
+IfMacros: [ 'IF' ]
+
+
+# case 块缩进，禁用
+IndentCaseBlocks: false
+# case 标签缩进
+IndentCaseLabels: true
+
+
+MaxEmptyLinesToKeep: 1
+PointerAlignment: Left
+UseTab: Never
+ColumnLimit: 0
+
+...
