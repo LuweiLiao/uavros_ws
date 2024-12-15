@@ -592,5 +592,114 @@
 				"isDefault": true
 			}
 		},
+		// usl_quadruped_base
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_coxa_l
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_coxa_l",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_coxa_l/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_coxa_l/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_coxa_r
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_coxa_r",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_coxa_r/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_coxa_r/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_femur_l
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_femur_l",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_femur_l/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_femur_l/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_femur_r
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_femur_r",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_femur_r/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_femur_r/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_tibia_l
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_tibia_l",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_tibia_l/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_tibia_l/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped_tibia_r
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped_tibia_r",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_tibia_r/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped_tibia_r/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped/models/usl_quadruped/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb usl_quadruped_base",
+				"erb usl_quadruped_coxa_l",
+				"erb usl_quadruped_femur_l",
+				"erb usl_quadruped_tibia_l",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 	]
 }
