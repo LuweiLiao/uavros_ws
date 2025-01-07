@@ -17,7 +17,7 @@
         "*.inc": "cmake",
         "*.sdf": "xml",
         "*.world": "xml",
-        "*.rsdf": "ruby",
+        "*.rsdf": "erb",
         "functional": "cpp",
         "cctype": "cpp",
         "clocale": "cpp",

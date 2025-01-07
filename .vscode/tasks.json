@@ -701,5 +701,75 @@
 				"isDefault": true
 			}
 		},
+		// usl_quadruped2_base
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped2_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped2_coxa
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped2_coxa",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_coxa/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_coxa/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped2_femur
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped2_femur",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_femur/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_femur/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped2_tibia
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped2_tibia",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_tibia/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2_tibia/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped2
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped2",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped2/models/usl_quadruped2/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb usl_quadruped2_base",
+				"erb usl_quadruped2_coxa",
+				"erb usl_quadruped2_femur",
+				"erb usl_quadruped2_tibia",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 	]
 }
