@@ -1,6 +1,6 @@
 # 配置步骤      
 
-**这里推荐使用Ubuntu20.04** 
+**注意注意：这里推荐在`WSL2`中使用Ubuntu20.04，WSL2配置可参考CSDN** 
    
 1. 下载源码     
    `git clone https://github.com/Luviewer/uavros_ws.git --recursive` 注意，需要递归克隆子模块，如果克隆不下来，可能是网络的问题
@@ -54,5 +54,5 @@
    `~/xx/ardupilot/ArduCopter/../Tools/autotest/sim_vehicle.py -f gazebo-iris --console` xx为`ardupilot`路径
 
 #
-`uav_simulator` 是gazeb模型核心仓库，更深入学习可参考`https://github.com/Luviewer/uav_simulator.git`  
+`uav_simulator` 是gazeb模型核心仓库，更深入学习可参考`https://gitee.com/Luviewer/uav_simulator.git`  
 飞控代码建议fork仓库：`https://gitee.com/Luviewer/ardupilot`
