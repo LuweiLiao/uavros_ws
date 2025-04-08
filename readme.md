@@ -3,7 +3,7 @@
 **这里推荐使用Ubuntu20.04** 
    
 1. 下载源码     
-   `git clone https://github.com/Luviewer/uavros_ws.git --recursive`
+   `git clone https://github.com/Luviewer/uavros_ws.git --recursive` 注意，需要递归克隆子模块，如果克隆不下来，可能是网络的问题
 2. 安装`ROS`      
    参考：http://wiki.ros.org/     
    [这里请安装ros-noetic]  
