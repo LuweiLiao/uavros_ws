@@ -54,5 +54,5 @@
    `~/xx/ardupilot/ArduCopter/../Tools/autotest/sim_vehicle.py -f gazebo-iris --console` xx为`ardupilot`路径
 
 #
-`uav_simulator` 是gazeb模型核心仓库，更深入学习可参考`https://github.com/Luviewer/uav_simulator.git`
+`uav_simulator` 是gazeb模型核心仓库，更深入学习可参考`https://github.com/Luviewer/uav_simulator.git`  
 飞控代码建议fork仓库：`https://gitee.com/Luviewer/ardupilot`
