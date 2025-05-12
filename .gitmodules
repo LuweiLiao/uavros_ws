@@ -1,15 +1,15 @@
 [submodule "src/rotors_simulator"]
 	path = src/rotors_simulator
-	url = ../rotors_simulator.git
+	url = https://gitee.com/Luviewer/rotors_simulator.git
 [submodule "src/mav_comm"]
 	path = src/mav_comm
-	url = ../mav_comm.git
+	url = https://gitee.com/Luviewer/mav_comm.git
 [submodule "src/glog_catkin"]
 	path = src/glog_catkin
-	url = ../glog_catkin.git
+	url = https://gitee.com/Luviewer/glog_catkin.git
 [submodule "src/catkin_simple"]
 	path = src/catkin_simple
-	url = ../catkin_simple.git
+	url = https://gitee.com/Luviewer/catkin_simple.git
 [submodule "src/uav_simulator"]
 	path = src/uav_simulator
 	url = ../uav_simulator.git
