@@ -3,10 +3,11 @@
 **注意注意：这里推荐在`WSL2`中使用Ubuntu20.04，WSL2配置可参考CSDN** 
    
 1. 下载源码     
-   `git clone https://github.com/Luviewer/uavros_ws.git --recursive` 注意，需要递归克隆子模块，如果克隆不下来，可能是网络的问题
+   [注意]: 首先`fork` src文件夹下面的uav_simulator.  
+   然后 `git clone https://github.com/Luviewer/uavros_ws.git --recursive` 注意，需要递归克隆子模块，如果克隆不下来，可能是网络的问题
 2. 安装`ROS` [这里请安装ros-noetic]  
    1) 参考官方安装环境：http://wiki.ros.org/      
-   2）使用“鱼香ROS”一键安装环境（推荐） [鱼香ROS](https://blog.csdn.net/qq_27865227/article/details/120191557?ops_request_misc=%257B%2522request%255Fid%2522%253A%252214476310f536396c2a7afbc2bce00965%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=14476310f536396c2a7afbc2bce00965&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-2-120191557-null-null.nonecase&utm_term=ros%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4450)
+   2) 使用“鱼香ROS”一键安装环境（推荐） [鱼香ROS](https://blog.csdn.net/qq_27865227/article/details/120191557?ops_request_misc=%257B%2522request%255Fid%2522%253A%252214476310f536396c2a7afbc2bce00965%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=14476310f536396c2a7afbc2bce00965&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-2-120191557-null-null.nonecase&utm_term=ros%E5%AE%89%E8%A3%85&spm=1018.2226.3001.4450)
 
 3. 安装`uavros_ws`环境    
     步骤如下:  
