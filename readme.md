@@ -51,8 +51,9 @@
 5. 安装VSCODE
    
 6. 运行仿真   
-   `roslaunch uav_gazebo spawn.launch world_name:=tsduav_quad`  其中，world_name:= 后面需要具体的机型参数，可选的机型在`src/uav_simulator/uav_gazebo/worlds`路径下面  
-   `~/xx/ardupilot/ArduCopter/../Tools/autotest/sim_vehicle.py -f gazebo-iris --console` xx为`ardupilot`路径
+   `roslaunch uav_gazebo spawn.launch world_name:=tsduav_quad`  其中，world_name:= 后面需要具体的机型参数，可选的机型在`src/uav_simulator/uav_gazebo/worlds`路径下面.  
+   `cd ~/xx/ardupilot/ArduCopter`  .
+   `../Tools/autotest/sim_vehicle.py -f gazebo-iris --console` xx为`ardupilot`路径
 
 #
 `uav_simulator` 是gazeb模型核心仓库，更深入学习可参考`https://gitee.com/Luviewer/uav_simulator.git`    
