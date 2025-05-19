@@ -1184,10 +1184,11 @@
 				"isDefault": true
 			}
 		},
+		//tsduav_quad_multi
 		{
 			"type": "shell",
-			"label": "erb uni350_multi_multi",
-			"command": "erb src/uav_simulator/uav_gazebo/worlds/uni350_multi.rsdf >  src/uav_simulator/uav_gazebo/worlds/uni350_multi.world",
+			"label": "erb tsduav_quad_multi_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi_base/model.sdf",
 			"args": [],
 			"dependsOn": [],
 			"problemMatcher": [],
@@ -1343,6 +1344,33 @@
 			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_base/model.sdf",
 			"args": [],
 			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "erb tsduav_quad_multi_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "erb tsduav_quad_multi",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi/model.rsdf >  src/uav_simulator/uav_gazebo/models/tsduav_quad_multi/models/tsduav_quad_multi/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb tsduav_quad_multi_prop",
+				"erb tsduav_quad_multi_base",
+			],
 			"problemMatcher": [],
 			"group": {
 				"kind": "build",
