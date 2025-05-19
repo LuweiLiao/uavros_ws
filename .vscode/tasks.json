@@ -835,7 +835,7 @@
 				"kind": "build",
 				"isDefault": true
 			}
-		}, 
+		},
 		// usl_quadruped2_bicopter_prop
 		{
 			"type": "shell",
@@ -863,6 +863,58 @@
 				"erb usl_quadruped2_bicopter_tilt",
 				"erb usl_quadruped2_bicopter_prop",
 			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		//uni350_multi
+		{
+			"type": "shell",
+			"label": "erb uni350_multi_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "erb uni350_multi_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "erb uni350_multi",
+			"command": "erb src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi/model.rsdf >  src/uav_simulator/uav_gazebo/models/uni350_multi/models/uni350_multi/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb uni350_multi_prop",
+				"erb uni350_multi_base",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "erb uni350_multi_multi",
+			"command": "erb src/uav_simulator/uav_gazebo/worlds/uni350_multi.rsdf >  src/uav_simulator/uav_gazebo/worlds/uni350_multi.world",
+			"args": [],
+			"dependsOn": [],
 			"problemMatcher": [],
 			"group": {
 				"kind": "build",
