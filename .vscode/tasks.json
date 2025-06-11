@@ -921,5 +921,74 @@
 				"isDefault": true
 			}
 		},
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_second",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb usl_bv2_second_base",
+				"erb usl_bv2_second_tilt1",
+				"erb usl_bv2_second_tilt2",
+				"erb usl_bv2_second_prop",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_second_tilt1
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_second_tilt1",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_tilt1/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_tilt1/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_second_tilt2
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_second_tilt2",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_tilt2/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_tilt2/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_second_prop
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_second_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_bv2_second_base
+		{
+			"type": "shell",
+			"label": "erb usl_bv2_second_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 	]
 }
