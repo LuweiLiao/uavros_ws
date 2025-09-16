@@ -771,6 +771,71 @@
 				"isDefault": true
 			}
 		},
+		//quadruped_ck_base
+		{
+			"type": "shell",
+			"label": "erb quadruped_ck_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		//quadruped_ck_coxa
+		{
+			"type": "shell",
+			"label": "erb quadruped_ck_coxa",
+			"command": "erb src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_coxa/model.rsdf >  src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_coxa/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		//quadruped_ck_femur
+		{
+			"type": "shell",
+			"label": "erb quadruped_ck_femur",
+			"command": "erb src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_femur/model.rsdf >  src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_femur/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		//quadruped_ck_tibia
+		{
+			"type": "shell",
+			"label": "erb quadruped_ck_tibia",
+			"command": "erb src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_tibia/model.rsdf >  src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck_tibia/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		//quadruped_ck
+		{
+			"type": "shell",
+			"label": "erb quadruped_ck",
+			"command": "erb src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck/model.rsdf >  src/uav_simulator/uav_gazebo/models/quadruped_ck/models/quadruped_ck/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 		// usl_quadruped2_bicopter_base
 		{
 			"type": "shell",
