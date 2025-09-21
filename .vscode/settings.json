@@ -103,6 +103,7 @@
     "[erb]": {
         "editor.defaultFormatter": "mbessey.vscode-rufo",
         "editor.formatOnSave": true,
-      },
+    },
+    "cmake.sourceDirectory": "/home/ckkkkk/uavros_ws/build/catkin_tools_prebuild",
 
 }

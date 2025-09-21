@@ -934,6 +934,104 @@
 				"isDefault": true
 			}
 		},
+				// usl_quadruped3_bicopter_base
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter_coxa
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_coxa",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_coxa/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_coxa/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter_femur
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_femur",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_femur/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_femur/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter_tibia
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_tibia",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tibia/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tibia/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter_tilt
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_tilt",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tilt/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tilt/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter_prop
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// usl_quadruped3_bicopter
+		{
+			"type": "shell",
+			"label": "erb usl_quadruped3_bicopter",
+			"command": "erb src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb usl_quadruped3_bicopter_base",
+				"erb usl_quadruped3_bicopter_coxa",
+				"erb usl_quadruped3_bicopter_femur",
+				"erb usl_quadruped3_bicopter_tibia",
+				"erb usl_quadruped3_bicopter_tilt",
+				"erb usl_quadruped3_bicopter_prop",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
 		//uni350_multi
 		{
 			"type": "shell",
