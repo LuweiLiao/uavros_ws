@@ -12,4 +12,4 @@
 	url = https://gitee.com/Luviewer/catkin_simple.git
 [submodule "src/uav_simulator"]
 	path = src/uav_simulator
-	url = ../uav_simulator.git
+	url = https://gitee.com/Luviewer/uav_simulator.git
