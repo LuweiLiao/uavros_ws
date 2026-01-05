@@ -538,7 +538,6 @@
 				"isDefault": true
 			}
 		},
-		
 		{
 			"type": "shell",
 			"label": "erb tsduav_c1",
@@ -1047,7 +1046,7 @@
 				"isDefault": true
 			}
 		},
-				// usl_quadruped3_bicopter_base
+		// usl_quadruped3_bicopter_base
 		{
 			"type": "shell",
 			"label": "erb usl_quadruped3_bicopter_base",
@@ -1258,6 +1257,90 @@
 			"type": "shell",
 			"label": "erb usl_bv2_second_base",
 			"command": "erb src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/usl_bv2_second/models/usl_bv2_second_base/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		/////////////////
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter/model.sdf",
+			"args": [],
+			"dependsOn": [
+				"erb tilt_tricopter_base",
+				"erb tilt_tricopter_tilt_front",
+				"erb tilt_tricopter_tilt_back",
+				"erb tilt_tricopter_prop",
+				"erb tilt_tricopter_prop_small",
+			],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// tilt_tricopter_tilt1
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter_tilt_front",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_tilt_front/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_tilt_front/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// tilt_tricopter_tilt_back
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter_tilt_back",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_tilt_back/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_tilt_back/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// tilt_tricopter_prop
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter_prop",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_prop/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_prop/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// tilt_tricopter_prop_small
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter_prop_small",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_prop_small/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_prop_small/model.sdf",
+			"args": [],
+			"dependsOn": [],
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		// tilt_tricopter_base
+		{
+			"type": "shell",
+			"label": "erb tilt_tricopter_base",
+			"command": "erb src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_base/model.rsdf >  src/uav_simulator/uav_gazebo/models/tilt_tricopter/models/tilt_tricopter_base/model.sdf",
 			"args": [],
 			"dependsOn": [],
 			"problemMatcher": [],
