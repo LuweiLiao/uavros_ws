@@ -4,6 +4,7 @@
 [submodule "src/mav_comm"]
 	path = src/mav_comm
 	url = https://gitee.com/Luviewer/mav_comm.git
+    branch = tlzhao-tilttricopter
 [submodule "src/glog_catkin"]
 	path = src/glog_catkin
 	url = https://gitee.com/Luviewer/glog_catkin.git
@@ -13,3 +14,4 @@
 [submodule "src/uav_simulator"]
 	path = src/uav_simulator
 	url = https://gitee.com/Luviewer/uav_simulator.git
+    branch = tlzhao-tilttricopter
