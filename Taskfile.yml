@@ -39,6 +39,34 @@ tasks:
     cmds:
       - erb {{.M}}/usl_bv2/models/usl_bv2_prop/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2_prop/model.sdf
 
+  # ---- usl_bicopter ----
+  erb-usl_bicopter:usl_bicopter:
+    desc: usl_bicopter 主模型
+    deps: [erb-usl_bicopter:usl_bicopter_base, erb-usl_bicopter:usl_bicopter_tilt, erb-usl_bicopter:usl_bicopter_prop]
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_multi:
+    desc: 生成 usl_bicopter_multi.world
+    deps: [erb-usl_bicopter:usl_bicopter]
+    cmds:
+      - erb {{.W}}/usl_bicopter_multi.rsdf > {{.W}}/usl_bicopter_multi.world
+
+  erb-usl_bicopter:usl_bicopter_base:
+    desc: usl_bicopter_base
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_base/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_base/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_tilt:
+    desc: usl_bicopter_tilt
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_tilt/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_tilt/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_prop:
+    desc: usl_bicopter_prop
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_prop/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_prop/model.sdf
+
   # ---- usl_iwp ----
   erb-usl_iwp:usl_iwp:
     desc: usl_iwp 主模型
@@ -114,6 +142,28 @@ tasks:
   erb-tsduav_quad:tsduav_quad_prop:
     cmds:
       - erb {{.M}}/tsduav_quad/models/tsduav_quad_prop/model.rsdf > {{.M}}/tsduav_quad/models/tsduav_quad_prop/model.sdf
+
+  # ---- pendulum_quadcopter ----
+  erb-pendulum_quadcopter:pendulum_quadcopter:
+    desc: pendulum_quadcopter 主模型
+    deps: [erb-pendulum_quadcopter:pendulum_quadcopter_base, erb-pendulum_quadcopter:pendulum_quadcopter_prop, erb-pendulum_quadcopter:pendulum_pole]
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_pole:
+    desc: pendulum_pole 独立长杆
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_pole/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_pole/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_quadcopter_base:
+    desc: pendulum_quadcopter_base
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_base/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_base/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_quadcopter_prop:
+    desc: pendulum_quadcopter_prop
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_prop/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_prop/model.sdf
 
   # ---- tsduav_t4 ----
   erb-tsduav_t4:tsduav_t4_base:
