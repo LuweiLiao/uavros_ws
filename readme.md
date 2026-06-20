@@ -106,6 +106,61 @@ export GAZEBO_MODEL_PATH=~/uavros_ws/src/uav_simulator/uav_gazebo/models:${GAZEB
 export GAZEBO_RESOURCE_PATH=~/uavros_ws/src/uav_simulator/uav_gazebo/worlds:${GAZEBO_RESOURCE_PATH}
 ```
 
+## 旧版配置命令保留
+
+下面保留早期 README 中的配置命令，方便对照旧环境或按原流程恢复工作区。
+
+下载源码时推荐递归克隆子模块：
+
+```bash
+git clone https://github.com/Luviewer/uavros_ws.git --recursive
+```
+
+安装 ROS Noetic 依赖：
+
+```bash
+sudo apt-get install ros-noetic-desktop-full ros-noetic-joy ros-noetic-octomap-ros python3-wstool python3-catkin-tools protobuf-compiler
+sudo apt-get install libgeographic-dev ros-noetic-geographic-msgs  # Required for mavros.
+sudo apt-get install libgoogle-glog-dev
+```
+
+初始化和构建工作区：
+
+```bash
+cd ~/uavros_ws/src
+catkin_init_workspace
+wstool init
+cd ~/uavros_ws
+catkin init  # If you haven't done this before.
+catkin build
+```
+
+配置环境变量：
+
+```bash
+echo "source ~/uavros_ws/devel/setup.bash" >> ~/.bashrc
+echo "export GAZEBO_MODEL_PATH=~/uavros_ws/src/uav_simulator/uav_gazebo/models:${GAZEBO_MODEL_PATH}" >> ~/.bashrc
+echo "export GAZEBO_RESOURCE_PATH=~/uavros_ws/src/uav_simulator/uav_gazebo/worlds:${GAZEBO_RESOURCE_PATH}" >> ~/.bashrc
+source ~/.bashrc
+```
+
+旧版 ArduPilot 安装命令：
+
+```bash
+git clone https://github.com/Luviewer/ardupilot.git --recursive
+cd ardupilot
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+. ~/.profile
+```
+
+旧版仿真启动示例：
+
+```bash
+roslaunch uav_gazebo spawn.launch world_name:=tsduav_quad
+cd ~/xx/ardupilot/ArduCopter
+../Tools/autotest/sim_vehicle.py -f gazebo-iris --console
+```
+
 ## 模型生成任务
 
 模型通常维护 `.rsdf` 模板，Gazebo 实际加载 `.sdf`。修改模型后需要重新生成。
