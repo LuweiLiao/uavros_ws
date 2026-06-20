@@ -1,0 +1,586 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+# 从 .vscode/tasks.json 迁移的 Gazebo 模型 rsdf -> sdf 构建任务
+
+version: '3'
+
+vars:
+  M: src/uav_simulator/uav_gazebo/models
+  W: src/uav_simulator/uav_gazebo/worlds
+
+tasks:
+  default:
+    desc: 构建 usl_bv2 模型（原 tasks.json 默认构建）
+    deps: [erb-usl_bv2:usl_bv2]
+
+  # ---- usl_bv2 ----
+  erb-usl_bv2:usl_bv2:
+    desc: usl_bv2 主模型
+    deps: [erb-usl_bv2:usl_bv2_base, erb-usl_bv2:usl_bv2_tilt1, erb-usl_bv2:usl_bv2_tilt2, erb-usl_bv2:usl_bv2_prop]
+    cmds:
+      - erb {{.M}}/usl_bv2/models/usl_bv2/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2/model.sdf
+
+  erb-usl_bv2:usl_bv2_base:
+    desc: usl_bv2_base
+    cmds:
+      - erb {{.M}}/usl_bv2/models/usl_bv2_base/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2_base/model.sdf
+
+  erb-usl_bv2:usl_bv2_tilt1:
+    desc: usl_bv2_tilt1
+    cmds:
+      - erb {{.M}}/usl_bv2/models/usl_bv2_tilt1/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2_tilt1/model.sdf
+
+  erb-usl_bv2:usl_bv2_tilt2:
+    desc: usl_bv2_tilt2
+    cmds:
+      - erb {{.M}}/usl_bv2/models/usl_bv2_tilt2/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2_tilt2/model.sdf
+
+  erb-usl_bv2:usl_bv2_prop:
+    desc: usl_bv2_prop
+    cmds:
+      - erb {{.M}}/usl_bv2/models/usl_bv2_prop/model.rsdf > {{.M}}/usl_bv2/models/usl_bv2_prop/model.sdf
+
+  # ---- usl_bicopter ----
+  erb-usl_bicopter:usl_bicopter:
+    desc: usl_bicopter 主模型
+    deps: [erb-usl_bicopter:usl_bicopter_base, erb-usl_bicopter:usl_bicopter_tilt, erb-usl_bicopter:usl_bicopter_prop]
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_multi:
+    desc: 生成 usl_bicopter_multi.world
+    deps: [erb-usl_bicopter:usl_bicopter]
+    cmds:
+      - erb {{.W}}/usl_bicopter_multi.rsdf > {{.W}}/usl_bicopter_multi.world
+
+  erb-usl_bicopter:usl_bicopter_base:
+    desc: usl_bicopter_base
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_base/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_base/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_tilt:
+    desc: usl_bicopter_tilt
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_tilt/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_tilt/model.sdf
+
+  erb-usl_bicopter:usl_bicopter_prop:
+    desc: usl_bicopter_prop
+    cmds:
+      - erb {{.M}}/usl_bicopter/models/usl_bicopter_prop/model.rsdf > {{.M}}/usl_bicopter/models/usl_bicopter_prop/model.sdf
+
+  # ---- usl_iwp ----
+  erb-usl_iwp:usl_iwp:
+    desc: usl_iwp 主模型
+    deps: [erb-usl_iwp:usl_iwp_claw, erb-usl_iwp:usl_iwp_body]
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp/model.sdf
+
+  erb-usl_iwp:usl_iwp_down:
+    desc: usl_iwp_down
+    deps: [erb-usl_iwp:usl_iwp_claw, erb-usl_iwp:usl_iwp_body]
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_down/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_down/model.sdf
+
+  erb-usl_iwp:usl_iwp_tree:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_tree/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_tree/model.sdf
+
+  erb-usl_iwp:usl_iwp_platform:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_platform/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_platform/model.sdf
+
+  erb-usl_iwp:usl_iwp_claw:
+    desc: usl_iwp_claw（依赖子件）
+    deps: [erb-usl_iwp:usl_iwp_claw_base, erb-usl_iwp:usl_iwp_claw_flange, erb-usl_iwp:usl_iwp_claw_pole, erb-usl_iwp:usl_iwp_claw_hand]
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_claw/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_claw/model.sdf
+
+  erb-usl_iwp:usl_iwp_claw_hand:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_claw_hand/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_claw_hand/model.sdf
+
+  erb-usl_iwp:usl_iwp_claw_flange:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_claw_flange/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_claw_flange/model.sdf
+
+  erb-usl_iwp:usl_iwp_claw_base:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_claw_base/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_claw_base/model.sdf
+
+  erb-usl_iwp:usl_iwp_claw_pole:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_claw_pole/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_claw_pole/model.sdf
+
+  erb-usl_iwp:usl_iwp_batt:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_batt/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_batt/model.sdf
+
+  erb-usl_iwp:usl_iwp_tiltrotor:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_tiltrotor/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_tiltrotor/model.sdf
+
+  erb-usl_iwp:usl_iwp_prop_cw:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_prop_cw/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_prop_cw/model.sdf
+
+  erb-usl_iwp:usl_iwp_prop_ccw:
+    cmds:
+      - erb {{.M}}/usl_iwp/models/usl_iwp_prop_ccw/model.rsdf > {{.M}}/usl_iwp/models/usl_iwp_prop_ccw/model.sdf
+
+  erb-usl_iwp:usl_iwp_body:
+    desc: usl_iwp_body（仅依赖，无命令）
+    deps: [erb-usl_iwp:usl_iwp_platform, erb-usl_iwp:usl_iwp_batt, erb-usl_iwp:usl_iwp_tiltrotor, erb-usl_iwp:usl_iwp_prop_ccw, erb-usl_iwp:usl_iwp_prop_cw]
+
+  # ---- tsduav_quad ----
+  erb-tsduav_quad:tsduav_quad_base:
+    cmds:
+      - erb {{.M}}/tsduav_quad/models/tsduav_quad_base/model.rsdf > {{.M}}/tsduav_quad/models/tsduav_quad_base/model.sdf
+
+  erb-tsduav_quad:tsduav_quad:
+    cmds:
+      - erb {{.M}}/tsduav_quad/models/tsduav_quad/model.rsdf > {{.M}}/tsduav_quad/models/tsduav_quad/model.sdf
+
+  erb-tsduav_quad:tsduav_quad_prop:
+    cmds:
+      - erb {{.M}}/tsduav_quad/models/tsduav_quad_prop/model.rsdf > {{.M}}/tsduav_quad/models/tsduav_quad_prop/model.sdf
+
+  # ---- pendulum_quadcopter ----
+  erb-pendulum_quadcopter:pendulum_quadcopter:
+    desc: pendulum_quadcopter 主模型
+    deps: [erb-pendulum_quadcopter:pendulum_quadcopter_base, erb-pendulum_quadcopter:pendulum_quadcopter_prop, erb-pendulum_quadcopter:pendulum_pole]
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_pole:
+    desc: pendulum_pole 独立长杆
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_pole/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_pole/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_quadcopter_base:
+    desc: pendulum_quadcopter_base
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_base/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_base/model.sdf
+
+  erb-pendulum_quadcopter:pendulum_quadcopter_prop:
+    desc: pendulum_quadcopter_prop
+    cmds:
+      - erb {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_prop/model.rsdf > {{.M}}/pendulum_quadcopter/models/pendulum_quadcopter_prop/model.sdf
+
+  # ---- tsduav_t4 ----
+  erb-tsduav_t4:tsduav_t4_base:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4_base/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4_base/model.sdf
+
+  erb-tsduav_t4:tsduav_t4:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4/model.sdf
+
+  erb-tsduav_t4:tsduav_t4_prop:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4_prop/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4_prop/model.sdf
+
+  erb-tsduav_t4:tsduav_t4_link:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4_link/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4_link/model.sdf
+
+  erb-tsduav_t4:tsduav_t4_saw:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4_saw/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4_saw/model.sdf
+
+  erb-tsduav_t4:tsduav_t4_bar:
+    cmds:
+      - erb {{.M}}/tsduav_t4/models/tsduav_t4_bar/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4_bar/model.sdf
+
+  # ---- tsduav_t4_old ----
+  erb-tsduav_t4_old:tsduav_t4_old_base:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old_base/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old_base/model.sdf
+
+  erb-tsduav_t4_old:tsduav_t4_old:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old/model.sdf
+
+  erb-tsduav_t4_old:tsduav_t4_old_prop:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old_prop/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old_prop/model.sdf
+
+  erb-tsduav_t4_old:tsduav_t4_old_link:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old_link/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old_link/model.sdf
+
+  erb-tsduav_t4_old:tsduav_t4_old_saw:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old_saw/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old_saw/model.sdf
+
+  erb-tsduav_t4_old:tsduav_t4_old_bar:
+    cmds:
+      - erb {{.M}}/tsduav_t4_old/models/tsduav_t4_old_bar/model.rsdf > {{.M}}/tsduav_t4_old/models/tsduav_t4_old_bar/model.sdf
+
+  # ---- tsduav_t4_nosaw ----
+  erb-tsduav_t4_nosaw:tsduav_t4_nosaw_base:
+    cmds:
+      - erb {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw_base/model.rsdf > {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw_base/model.sdf
+
+  erb-tsduav_t4_nosaw:tsduav_t4_nosaw:
+    deps: [erb-tsduav_t4_nosaw:tsduav_t4_nosaw_prop, erb-tsduav_t4_old:tsduav_t4_old_base]
+    cmds:
+      - erb {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw/model.rsdf > {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw/model.sdf
+
+  erb-tsduav_t4_nosaw:tsduav_t4_nosaw_prop:
+    cmds:
+      - erb {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw_prop/model.rsdf > {{.M}}/tsduav_t4_nosaw/models/tsduav_t4_nosaw_prop/model.sdf
+
+  # ---- tsduav_c1 ----
+  erb-tsduav_c1:tsduav_c1:
+    cmds:
+      - erb {{.M}}/tsduav_c1/models/tsduav_c1/model.rsdf > {{.M}}/tsduav_c1/models/tsduav_c1/model.sdf
+
+  erb-tsduav_c1:tsduav_c1_base:
+    cmds:
+      - erb {{.M}}/tsduav_c1/models/tsduav_c1_base/model.rsdf > {{.M}}/tsduav_c1/models/tsduav_c1_base/model.sdf
+
+  erb-tsduav_c1:tsduav_c1_prop:
+    cmds:
+      - erb {{.M}}/tsduav_c1/models/tsduav_c1_prop/model.rsdf > {{.M}}/tsduav_c1/models/tsduav_c1_prop/model.sdf
+
+  # ---- common/box ----
+  erb-common:box:
+    cmds:
+      - erb {{.M}}/common/models/box/model.rsdf > {{.M}}/common/models/box/model.sdf
+
+  # ---- usl_balancebot ----
+  erb-usl_balancebot:usl_balancebot_base:
+    cmds:
+      - erb {{.M}}/usl_balancebot/models/usl_balancebot_base/model.rsdf > {{.M}}/usl_balancebot/models/usl_balancebot_base/model.sdf
+
+  erb-usl_balancebot:usl_balancebot_wheel:
+    cmds:
+      - erb {{.M}}/usl_balancebot/models/usl_balancebot_wheel/model.rsdf > {{.M}}/usl_balancebot/models/usl_balancebot_wheel/model.sdf
+
+  erb-usl_balancebot:usl_balancebot:
+    cmds:
+      - erb {{.M}}/usl_balancebot/models/usl_balancebot/model.rsdf > {{.M}}/usl_balancebot/models/usl_balancebot/model.sdf
+
+  # ---- usl_balanceTailsitter ----
+  erb-usl_balanceTailsitter:usl_balanceTailsitter_base:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_base/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_base/model.sdf
+
+  erb-usl_balanceTailsitter:usl_balanceTailsitter_tilt:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_tilt/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_tilt/model.sdf
+
+  erb-usl_balanceTailsitter:usl_balanceTailsitter:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter/model.sdf
+
+  erb-usl_balanceTailsitter:usl_balanceTailsitter_prop:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_prop/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_prop/model.sdf
+
+  erb-usl_balanceTailsitter:usl_balanceTailsitter_leg:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_leg/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_leg/model.sdf
+
+  erb-usl_balanceTailsitter:usl_balanceTailsitter_wheel:
+    cmds:
+      - erb {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_wheel/model.rsdf > {{.M}}/usl_balanceTailsitter/models/usl_balanceTailsitter_wheel/model.sdf
+
+  # ---- usl_quadruped ----
+  erb-usl_quadruped:usl_quadruped_base:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_base/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_base/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_coxa_l:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_coxa_l/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_coxa_l/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_coxa_r:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_coxa_r/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_coxa_r/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_femur_l:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_femur_l/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_femur_l/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_femur_r:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_femur_r/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_femur_r/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_tibia_l:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_tibia_l/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_tibia_l/model.sdf
+
+  erb-usl_quadruped:usl_quadruped_tibia_r:
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped_tibia_r/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped_tibia_r/model.sdf
+
+  erb-usl_quadruped:usl_quadruped:
+    deps: [erb-usl_quadruped:usl_quadruped_base, erb-usl_quadruped:usl_quadruped_coxa_l, erb-usl_quadruped:usl_quadruped_femur_l, erb-usl_quadruped:usl_quadruped_tibia_l]
+    cmds:
+      - erb {{.M}}/usl_quadruped/models/usl_quadruped/model.rsdf > {{.M}}/usl_quadruped/models/usl_quadruped/model.sdf
+
+  # ---- usl_quadruped2 ----
+  erb-usl_quadruped2:usl_quadruped2_base:
+    cmds:
+      - erb {{.M}}/usl_quadruped2/models/usl_quadruped2_base/model.rsdf > {{.M}}/usl_quadruped2/models/usl_quadruped2_base/model.sdf
+
+  erb-usl_quadruped2:usl_quadruped2_coxa:
+    cmds:
+      - erb {{.M}}/usl_quadruped2/models/usl_quadruped2_coxa/model.rsdf > {{.M}}/usl_quadruped2/models/usl_quadruped2_coxa/model.sdf
+
+  erb-usl_quadruped2:usl_quadruped2_femur:
+    cmds:
+      - erb {{.M}}/usl_quadruped2/models/usl_quadruped2_femur/model.rsdf > {{.M}}/usl_quadruped2/models/usl_quadruped2_femur/model.sdf
+
+  erb-usl_quadruped2:usl_quadruped2_tibia:
+    cmds:
+      - erb {{.M}}/usl_quadruped2/models/usl_quadruped2_tibia/model.rsdf > {{.M}}/usl_quadruped2/models/usl_quadruped2_tibia/model.sdf
+
+  erb-usl_quadruped2:usl_quadruped2:
+    deps: [erb-usl_quadruped2:usl_quadruped2_base, erb-usl_quadruped2:usl_quadruped2_coxa, erb-usl_quadruped2:usl_quadruped2_femur, erb-usl_quadruped2:usl_quadruped2_tibia]
+    cmds:
+      - erb {{.M}}/usl_quadruped2/models/usl_quadruped2/model.rsdf > {{.M}}/usl_quadruped2/models/usl_quadruped2/model.sdf
+
+  # ---- quadruped_ck ----
+  erb-quadruped_ck:quadruped_ck_base:
+    cmds:
+      - erb {{.M}}/quadruped_ck/models/quadruped_ck_base/model.rsdf > {{.M}}/quadruped_ck/models/quadruped_ck_base/model.sdf
+
+  erb-quadruped_ck:quadruped_ck_coxa:
+    cmds:
+      - erb {{.M}}/quadruped_ck/models/quadruped_ck_coxa/model.rsdf > {{.M}}/quadruped_ck/models/quadruped_ck_coxa/model.sdf
+
+  erb-quadruped_ck:quadruped_ck_femur:
+    cmds:
+      - erb {{.M}}/quadruped_ck/models/quadruped_ck_femur/model.rsdf > {{.M}}/quadruped_ck/models/quadruped_ck_femur/model.sdf
+
+  erb-quadruped_ck:quadruped_ck_tibia:
+    cmds:
+      - erb {{.M}}/quadruped_ck/models/quadruped_ck_tibia/model.rsdf > {{.M}}/quadruped_ck/models/quadruped_ck_tibia/model.sdf
+
+  erb-quadruped_ck:quadruped_ck:
+    cmds:
+      - erb {{.M}}/quadruped_ck/models/quadruped_ck/model.rsdf > {{.M}}/quadruped_ck/models/quadruped_ck/model.sdf
+
+  # ---- usl_quadruped2_bicopter ----
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_base:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_base/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_base/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_coxa:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_coxa/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_coxa/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_femur:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_femur/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_femur/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_tibia:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_tibia/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_tibia/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_tilt:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_tilt/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_tilt/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_prop:
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_prop/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter_prop/model.sdf
+
+  erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter:
+    deps: [erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_base, erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_coxa, erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_femur, erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_tibia, erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_tilt, erb-usl_quadruped2_bicopter:usl_quadruped2_bicopter_prop]
+    cmds:
+      - erb {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter/model.rsdf > {{.M}}/usl_quadruped2_bicopter/models/usl_quadruped2_bicopter/model.sdf
+
+  # ---- usl_quadruped3_bicopter ----
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_base:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_base/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_base/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_coxa:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_coxa/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_coxa/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_femur:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_femur/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_femur/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_tibia:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tibia/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tibia/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_tilt:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tilt/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_tilt/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_prop:
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_prop/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter_prop/model.sdf
+
+  erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter:
+    deps: [erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_base, erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_coxa, erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_femur, erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_tibia, erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_tilt, erb-usl_quadruped3_bicopter:usl_quadruped3_bicopter_prop]
+    cmds:
+      - erb {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter/model.rsdf > {{.M}}/usl_quadruped3_bicopter/models/usl_quadruped3_bicopter/model.sdf
+
+  # ---- uni350_multi ----
+  erb-uni350_multi:uni350_multi_base:
+    cmds:
+      - erb {{.M}}/uni350_multi/models/uni350_multi_base/model.rsdf > {{.M}}/uni350_multi/models/uni350_multi_base/model.sdf
+
+  erb-uni350_multi:uni350_multi_prop:
+    cmds:
+      - erb {{.M}}/uni350_multi/models/uni350_multi_prop/model.rsdf > {{.M}}/uni350_multi/models/uni350_multi_prop/model.sdf
+
+  erb-uni350_multi:uni350_multi:
+    deps: [erb-uni350_multi:uni350_multi_prop, erb-uni350_multi:uni350_multi_base]
+    cmds:
+      - erb {{.M}}/uni350_multi/models/uni350_multi/model.rsdf > {{.M}}/uni350_multi/models/uni350_multi/model.sdf
+
+  erb-uni350_multi:uni350_multi_multi:
+    desc: 生成 uni350_multi.world
+    cmds:
+      - erb {{.W}}/uni350_multi.rsdf > {{.W}}/uni350_multi.world
+
+  # ---- usl_bv2_second ----
+  erb-usl_bv2_second:usl_bv2_second:
+    deps: [erb-usl_bv2_second:usl_bv2_second_base, erb-usl_bv2_second:usl_bv2_second_tilt1, erb-usl_bv2_second:usl_bv2_second_tilt2, erb-usl_bv2_second:usl_bv2_second_prop]
+    cmds:
+      - erb {{.M}}/usl_bv2_second/models/usl_bv2_second/model.rsdf > {{.M}}/usl_bv2_second/models/usl_bv2_second/model.sdf
+
+  erb-usl_bv2_second:usl_bv2_second_base:
+    cmds:
+      - erb {{.M}}/usl_bv2_second/models/usl_bv2_second_base/model.rsdf > {{.M}}/usl_bv2_second/models/usl_bv2_second_base/model.sdf
+
+  erb-usl_bv2_second:usl_bv2_second_tilt1:
+    cmds:
+      - erb {{.M}}/usl_bv2_second/models/usl_bv2_second_tilt1/model.rsdf > {{.M}}/usl_bv2_second/models/usl_bv2_second_tilt1/model.sdf
+
+  erb-usl_bv2_second:usl_bv2_second_tilt2:
+    cmds:
+      - erb {{.M}}/usl_bv2_second/models/usl_bv2_second_tilt2/model.rsdf > {{.M}}/usl_bv2_second/models/usl_bv2_second_tilt2/model.sdf
+
+  erb-usl_bv2_second:usl_bv2_second_prop:
+    cmds:
+      - erb {{.M}}/usl_bv2_second/models/usl_bv2_second_prop/model.rsdf > {{.M}}/usl_bv2_second/models/usl_bv2_second_prop/model.sdf
+
+  # ---- tilt_tricopter ----
+  erb-tilt_tricopter:tilt_tricopter:
+    deps: [erb-tilt_tricopter:tilt_tricopter_base, erb-tilt_tricopter:tilt_tricopter_tilt_front, erb-tilt_tricopter:tilt_tricopter_tilt_back, erb-tilt_tricopter:tilt_tricopter_prop, erb-tilt_tricopter:tilt_tricopter_prop_small]
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_fix:
+    deps: [erb-tilt_tricopter:tilt_tricopter_fix_tilt_fix, erb-tilt_tricopter:tilt_tricopter]
+    cmds:
+      - erb {{.M}}/tilt_tricopter_fix/models/tilt_tricopter_fix/model.rsdf > {{.M}}/tilt_tricopter_fix/models/tilt_tricopter_fix/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_fix_tilt_fix:
+    cmds:
+      - erb {{.M}}/tilt_tricopter_fix/models/tilt_tricopter_fix_tilt_fix/model.rsdf > {{.M}}/tilt_tricopter_fix/models/tilt_tricopter_fix_tilt_fix/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_base:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_base/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_base/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_tilt_front:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_tilt_front/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_tilt_front/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_tilt_back:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_tilt_back/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_tilt_back/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop_small:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop_ccw:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_ccw/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_ccw/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop_cw:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_cw/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_cw/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop_small_ccw:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_ccw/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_ccw/model.sdf
+
+  erb-tilt_tricopter:tilt_tricopter_prop_small_cw:
+    cmds:
+      - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_cw/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_cw/model.sdf
+
+  # ---- tilt_quadcopter ----
+  erb-tilt_quadcopter:tilt_quadcopter:
+    deps: [erb-tilt_quadcopter:tilt_quadcopter_base, erb-tilt_quadcopter:tilt_quadcopter_tilt_front, erb-tilt_quadcopter:tilt_quadcopter_tilt_back, erb-tilt_quadcopter:tilt_quadcopter_prop, erb-tilt_quadcopter:tilt_quadcopter_prop_small]
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter/model.sdf
+
+  erb-tilt_quadcopter:tilt_quadcopter_base:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_base/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_base/model.sdf
+
+  erb-tilt_quadcopter:tilt_quadcopter_tilt_front:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_tilt_front/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_tilt_front/model.sdf
+
+  erb-tilt_quadcopter:tilt_quadcopter_tilt_back:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_tilt_back/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_tilt_back/model.sdf
+
+  erb-tilt_quadcopter:tilt_quadcopter_prop:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop/model.sdf
+
+  erb-tilt_quadcopter:tilt_quadcopter_prop_small:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop_small/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop_small/model.sdf
+
+  # ---- tilt_quadcopter_armbot ----
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot:
+    deps: [erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_base, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_front, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_back, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop_small]
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot/model.sdf
+
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_base:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_base/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_base/model.sdf
+
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_front:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_tilt_front/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_tilt_front/model.sdf
+
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_back:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_tilt_back/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_tilt_back/model.sdf
+
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_prop/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_prop/model.sdf
+
+  erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop_small:
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_prop_small/model.rsdf > {{.M}}/tilt_quadcopter_armbot/models/tilt_quadcopter_armbot_prop_small/model.sdf
+
+  # ---- nonplant_hex ----
+  erb-nonplant_hex:nonplant_hex_base:
+    cmds:
+      - erb {{.M}}/nonplant_hex/models/nonplant_hex_base/model.rsdf > {{.M}}/nonplant_hex/models/nonplant_hex_base/model.sdf
+
+  erb-nonplant_hex:nonplant_hex_arm:
+    cmds:
+      - erb {{.M}}/nonplant_hex/models/nonplant_hex_arm/model.rsdf > {{.M}}/nonplant_hex/models/nonplant_hex_arm/model.sdf
+
+  erb-nonplant_hex:nonplant_hex_prop:
+    cmds:
+      - erb {{.M}}/nonplant_hex/models/nonplant_hex_prop/model.rsdf > {{.M}}/nonplant_hex/models/nonplant_hex_prop/model.sdf
+
+  erb-nonplant_hex:nonplant_hex:
+    desc: 非共面六旋翼 nonplant_hex 主模型
+    deps: [erb-nonplant_hex:nonplant_hex_base, erb-nonplant_hex:nonplant_hex_arm, erb-nonplant_hex:nonplant_hex_prop]
+    cmds:
+      - erb {{.M}}/nonplant_hex/models/nonplant_hex/model.rsdf > {{.M}}/nonplant_hex/models/nonplant_hex/model.sdf
