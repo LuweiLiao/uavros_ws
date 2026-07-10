@@ -1,0 +1,5 @@
+# Auto-merged on hosts with <=10GB RAM (see scripts/lib/memory-safe.sh).
+services:
+  dev:
+    mem_limit: 5g
+    memswap_limit: 6g
