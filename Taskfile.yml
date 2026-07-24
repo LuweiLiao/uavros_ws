@@ -540,6 +540,13 @@ tasks:
     cmds:
       - erb {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop_small/model.rsdf > {{.M}}/tilt_quadcopter/models/tilt_quadcopter_prop_small/model.sdf
 
+  # ---- tilt_quadcopter_fix（固定倾角共轴四旋翼，复用 tilt_quadcopter 的 base/tilt_front/prop） ----
+  erb-tilt_quadcopter_fix:tilt_quadcopter_fix:
+    desc: tilt_quadcopter_fix 主模型（共轴电机对绕机体 X 轴固定倾转 ±20°）
+    deps: [erb-tilt_quadcopter:tilt_quadcopter_base, erb-tilt_quadcopter:tilt_quadcopter_tilt_front, erb-tilt_quadcopter:tilt_quadcopter_prop]
+    cmds:
+      - erb {{.M}}/tilt_quadcopter_fix/models/tilt_quadcopter_fix/model.rsdf > {{.M}}/tilt_quadcopter_fix/models/tilt_quadcopter_fix/model.sdf
+
   # ---- tilt_quadcopter_armbot ----
   erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot:
     deps: [erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_base, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_front, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_tilt_back, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop, erb-tilt_quadcopter_armbot:tilt_quadcopter_armbot_prop_small]
