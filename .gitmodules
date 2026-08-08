@@ -15,3 +15,6 @@
 	path = src/uav_simulator
 	url = https://gitee.com/Luviewer/uav_simulator.git
     branch = tlzhao-tilttricopter
+[submodule "src/vrpn_mavros"]
+	path = src/vrpn_mavros
+	url = git@github.com:LuweiLiao/vrpn_mavros.git

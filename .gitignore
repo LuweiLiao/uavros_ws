@@ -6,3 +6,5 @@ install
 
 src/.rosinstall
 src/CMakeLists.txt
+__pycache__/
+*.pyc
