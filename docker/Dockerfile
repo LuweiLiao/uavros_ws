@@ -12,6 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # ROS Noetic + Gazebo Classic + uavros_ws build/runtime dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    bash-completion \
     ca-certificates \
     curl \
     git \
@@ -31,6 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-wstool \
     ruby \
     sudo \
+    vim \
     wget \
     && apt-get install -y --no-install-recommends \
     ros-noetic-cv-bridge \
@@ -72,6 +74,13 @@ RUN chmod +x /ros_entrypoint.sh
 
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}/uavros_ws
+
+# Keep ROS command completion available in every interactive shell. The
+# entrypoint sources ROS for the initial process, but nested/interactive Bash
+# shells do not inherit Bash completion registrations.
+RUN printf '\n# ROS environment and command completion\n' >> /home/${USERNAME}/.bashrc \
+    && printf 'source /opt/ros/noetic/setup.bash\n' >> /home/${USERNAME}/.bashrc \
+    && printf '[ -f /home/%s/uavros_ws/devel/setup.bash ] && source /home/%s/uavros_ws/devel/setup.bash\n' "${USERNAME}" "${USERNAME}" >> /home/${USERNAME}/.bashrc
 
 ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]

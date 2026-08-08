@@ -22,6 +22,7 @@ services:
       - .:/home/ros/uavros_ws
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - ${HOME}/.Xauthority:/home/ros/.Xauthority:rw
+      - ${HOME}/Pictures/Gazebo:/home/ros/.gazebo/pictures:rw
     devices:
       - /dev/dri:/dev/dri
     group_add:

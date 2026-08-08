@@ -3,7 +3,7 @@
 #
 # Usage:
 #   ./scripts/vrpn-to-mavros.sh
-#   FCU_URL='udp://:14560@192.168.43.10:14550' TRACKER=tiltquad ./scripts/vrpn-to-mavros.sh
+#   FCU_URL='udp://:14560@192.168.3.109:14550' TRACKER=pend_h1 ./scripts/vrpn-to-mavros.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -16,11 +16,11 @@ memory_safe_compose_files
 export UID
 export GID="$(id -g)"
 
-VRPN_SERVER="${VRPN_SERVER:-192.168.43.5}"
+VRPN_SERVER="${VRPN_SERVER:-192.168.3.37}"
 VRPN_PORT="${VRPN_PORT:-3883}"
-TRACKER="${TRACKER:-tiltquad}"
+TRACKER="${TRACKER:-pend_h1}"
 # Local bind port @ FCU IP:port (must match WiFi telemetry return path)
-FCU_URL="${FCU_URL:-udp://:14560@192.168.43.10:14550}"
+FCU_URL="${FCU_URL:-udp://:14560@192.168.3.109:14550}"
 USE_MOCAP="${USE_MOCAP:-false}"
 
 if command -v xhost >/dev/null 2>&1; then
