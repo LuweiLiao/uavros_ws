@@ -12,6 +12,37 @@ tasks:
     desc: 构建 usl_bv2 模型（原 tasks.json 默认构建）
     deps: [erb-usl_bv2:usl_bv2]
 
+  # ---- Scorpio（只维护 RSDF，SDF 为 Gazebo 运行时生成物） ----
+  erb-Scorpio:Scorpio:
+    desc: 生成 Scorpio 六足倾转三旋翼模型
+    deps: [erb-Scorpio:base, erb-Scorpio:coxa, erb-Scorpio:femur, erb-Scorpio:tibia, erb-Scorpio:tilt, erb-Scorpio:prop]
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio/model.rsdf > {{.M}}/Scorpio/models/scorpio/model.sdf
+
+  erb-Scorpio:base:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_base/model.rsdf > {{.M}}/Scorpio/models/scorpio_base/model.sdf
+
+  erb-Scorpio:coxa:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_coxa/model.rsdf > {{.M}}/Scorpio/models/scorpio_coxa/model.sdf
+
+  erb-Scorpio:femur:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_femur/model.rsdf > {{.M}}/Scorpio/models/scorpio_femur/model.sdf
+
+  erb-Scorpio:tibia:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_tibia/model.rsdf > {{.M}}/Scorpio/models/scorpio_tibia/model.sdf
+
+  erb-Scorpio:tilt:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_tilt/model.rsdf > {{.M}}/Scorpio/models/scorpio_tilt/model.sdf
+
+  erb-Scorpio:prop:
+    cmds:
+      - erb {{.M}}/Scorpio/models/scorpio_prop/model.rsdf > {{.M}}/Scorpio/models/scorpio_prop/model.sdf
+
   # ---- usl_bv2 ----
   erb-usl_bv2:usl_bv2:
     desc: usl_bv2 主模型
