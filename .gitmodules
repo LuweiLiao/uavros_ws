@@ -13,8 +13,8 @@
 	url = https://gitee.com/Luviewer/catkin_simple.git
 [submodule "src/uav_simulator"]
 	path = src/uav_simulator
-	url = https://gitee.com/Luviewer/uav_simulator.git
-    branch = tlzhao-tilttricopter
+	url = git@github.com:LuweiLiao/uav_simulator.git
+	branch = feature/tsdt4-gazebo-world
 [submodule "src/vrpn_mavros"]
 	path = src/vrpn_mavros
 	url = git@github.com:LuweiLiao/vrpn_mavros.git
