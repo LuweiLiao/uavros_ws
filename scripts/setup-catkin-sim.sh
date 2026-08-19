@@ -21,7 +21,9 @@ memory_safe_clean_if_profile_mismatch "${PROFILE}" "${ROOT}"
 read -r catkin_jobs make_j make_l <<< "$(memory_safe_recommend)"
 memory_safe_export_make
 
-# Simulation essentials only — skip entire rotors_simulator (heavy + HIL compile errors).
+# Simulation essentials only.  TSDT4's SDF loads the rotor motor-model
+# plugin at runtime, so it must be built even though the HIL interface remains
+# skiplisted.
 SIM_PACKAGES=(
   mav_msgs
   mav_planning_msgs
@@ -31,6 +33,7 @@ SIM_PACKAGES=(
   uav_gazebo
   uav_gazebo_plugin
   uav_control
+  rotors_gazebo_plugins
 )
 
 catkin config --profile "${PROFILE}"
