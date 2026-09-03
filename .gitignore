@@ -11,3 +11,11 @@ __pycache__/
 
 # 联合仿真运行证据仅保存在本机，不提交大体积 bag、曲线和导出数据
 run_logs/
+sim_results/
+*-curves/
+*.bag
+*.mp4
+*.ogv
+
+# 本机环境配置可能包含路径或凭据
+.env
