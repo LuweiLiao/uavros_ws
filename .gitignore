@@ -14,6 +14,7 @@ run_logs/
 sim_results/
 *-curves/
 *.bag
+*.bag.active
 *.mp4
 *.ogv
 
