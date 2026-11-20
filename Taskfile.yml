@@ -545,6 +545,52 @@ tasks:
     cmds:
       - erb {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_cw/model.rsdf > {{.M}}/tilt_tricopter/models/tilt_tricopter_prop_small_cw/model.sdf
 
+  # ---- m22_tricopter ----
+  erb-m22_tricopter:m22_tricopter:
+    deps: [erb-m22_tricopter:m22_tricopter_base, erb-m22_tricopter:m22_tricopter_tilt_pitch_r, erb-m22_tricopter:m22_tricopter_tilt_pitch_l, erb-m22_tricopter:m22_tricopter_tilt_roll_r, erb-m22_tricopter:m22_tricopter_tilt_roll_l, erb-m22_tricopter:m22_tricopter_prop_r_upper, erb-m22_tricopter:m22_tricopter_prop_r_lower, erb-m22_tricopter:m22_tricopter_prop_l_upper, erb-m22_tricopter:m22_tricopter_prop_l_lower, erb-m22_tricopter:m22_tricopter_prop_back]
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_base:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_base/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_base/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_tilt_pitch_r:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_tilt_pitch_r/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_tilt_pitch_r/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_tilt_pitch_l:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_tilt_pitch_l/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_tilt_pitch_l/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_tilt_roll_r:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_tilt_roll_r/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_tilt_roll_r/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_tilt_roll_l:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_tilt_roll_l/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_tilt_roll_l/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_prop_r_upper:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_prop_r_upper/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_prop_r_upper/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_prop_r_lower:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_prop_r_lower/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_prop_r_lower/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_prop_l_upper:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_prop_l_upper/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_prop_l_upper/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_prop_l_lower:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_prop_l_lower/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_prop_l_lower/model.sdf
+
+  erb-m22_tricopter:m22_tricopter_prop_back:
+    cmds:
+      - erb {{.M}}/m22_tricopter/models/m22_tricopter_prop_back/model.rsdf > {{.M}}/m22_tricopter/models/m22_tricopter_prop_back/model.sdf
+
   # ---- tilt_quadcopter ----
   erb-tilt_quadcopter:tilt_quadcopter:
     deps: [erb-tilt_quadcopter:tilt_quadcopter_base, erb-tilt_quadcopter:tilt_quadcopter_tilt_front, erb-tilt_quadcopter:tilt_quadcopter_tilt_back, erb-tilt_quadcopter:tilt_quadcopter_prop, erb-tilt_quadcopter:tilt_quadcopter_prop_small]
