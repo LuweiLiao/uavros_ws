@@ -203,7 +203,7 @@ tasks:
 
   erb-tsduav_t4:tsduav_t4:
     cmds:
-      - erb {{.M}}/tsduav_t4/models/tsduav_t4/model.rsdf > {{.M}}/tsduav_t4/models/tsduav_t4/model.sdf
+      - erb {{.M}}/tsd_model/tsduav_t4/models/tsduav_t4/model.rsdf > {{.M}}/tsd_model/tsduav_t4/models/tsduav_t4/model.sdf
 
   erb-tsduav_t4:tsduav_t4_prop:
     cmds:
